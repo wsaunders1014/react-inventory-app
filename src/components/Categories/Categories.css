@@ -1,0 +1,76 @@
+#categories {
+  display: block;
+}
+#categories .item {
+  background: #FFFFFF;
+}
+#categories .item .img {
+  background: url(img/furniture-sprite.png) no-repeat;
+}
+#categories .item.selected {
+  display: none;
+}
+.main {
+  width: 71.914893617021277%;
+  height: 471px;
+  overflow: hidden;
+  cursor: move;
+  background: rgba(236, 236, 236, 0.38);
+  border-radius: 10px;
+  position: relative;
+}
+.main .overflow {
+  overflow-y: hidden;
+  height: 412px;
+  position: relative;
+}
+.main .holder {
+  padding: 34px 0;
+  position: absolute;
+  width: 100%;
+  height: 79%;
+  top:48px;
+  overflow-y: scroll;
+}
+.main .item {
+  width: 133px;
+  float: left;
+  margin: 0px 0 16px 4.2%;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 1px #DCDCDC;
+  border-radius: 11px;
+  position: relative;
+}
+.main .item .img {
+  width: 100%;
+  height: 0;
+  padding-bottom: 98.5%;
+  border-radius: 11px;
+  pointer-events: none;
+}
+.main .item .bottom {
+  height: 34px;
+  border-top: 1px solid rgba(151, 151, 151, 0.11);
+  overflow: hidden;
+  position: relative;
+  border-radius: 0px 0px 10px 10px;
+}
+.main .item .bottom h4 {
+  text-align: center;
+  letter-spacing: 0.27px;
+  text-transform: capitalize;
+  color: #3F3F3F;
+  letter-spacing: 1.29px;
+  font-family: 'Colfax-Medium';
+  font-size: 10px;
+  line-height: 12px;
+  display: inline-block;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.main .item:hover {
+  box-shadow: 0px 0px 0px 2px rgba(73, 177, 211, 0.45);
+  width: 133px;
+}
