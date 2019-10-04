@@ -1,0 +1,128 @@
+#sidebar {
+  width: 24.574468085106383%;
+  padding-left: 3.51063829787234%;
+  padding-right: 3.51063829787234%;
+  position: absolute;
+  overflow-y: hidden;
+  height: 471px;
+  left: 71.789362%;
+  top: 0;
+}
+#sidebar .wrapper {
+  background: rgba(236, 236, 236, 0.38);
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+  height: 100%;
+}
+#sidebar .back-btn {
+  background: url(img/back-btn.svg) no-repeat;
+  width: 51px;
+  height: 47px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  display: none;
+}
+#sidebar .overflow {
+  height: 412px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+#sidebar .holder {
+  padding: 24px 0;
+  width: 100%;
+  position: absolute;
+  overflow-x: visible;
+}
+#sidebar .slide-track {
+  right: -19px;
+}
+#sidebar ul {
+  height: 100%;
+  display: block;
+  overflow-x: visible;
+}
+#sidebar ul li {
+  width: 90%;
+  margin: 0 auto 9px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 1px #CFCFCF;
+  background-color: #fff;
+  position: relative;
+  transition: all 1s;
+  font-family: 'Colfax-Medium';
+  color: #5B5B5B;
+}
+#sidebar ul li .cat {
+  font-size: 14px;
+  letter-spacing: 0.33px;
+  line-height: 41px;
+  padding-left: 15px;
+  text-transform: capitalize;
+}
+#sidebar ul li .close-btn {
+  font-size: 22px;
+  color: #cccccc;
+  letter-spacing: -0.11px;
+  transform: rotate(-315deg);
+  position: absolute;
+  right: 14px;
+  top: 0;
+  height: 100%;
+  line-height: 46px;
+  cursor: pointer;
+}
+#sidebar ul li .close-btn:hover {
+  color: #ff3b00;
+}
+#sidebar ul li .number {
+  font-size: 14px;
+  display: none;
+  font-family: 'Colfax-Medium';
+  position: absolute;
+  right: 9px;
+  width: 17px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  line-height: 46px;
+}
+#sidebar ul li:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#sidebar ul li.current {
+  box-shadow: 0px 0px 0px 1px #65CAEB;
+  color: #65CAEB;
+}
+#sidebar ul.selectable li {
+  cursor: pointer;
+  transition: all 0.4s;
+}
+#sidebar ul.selectable li .close-btn {
+  display: none;
+}
+#sidebar ul.selectable li .number {
+  display: block;
+}
+#sidebar ul.selectable li.selectable:hover {
+  box-shadow: 0px 0px 0px 1px #65CAEB;
+  color: #65CAEB;
+}
+.status-bar {
+    position: absolute;
+    bottom: 0;
+    height: 47px;
+    background: #f3f3f3;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    line-height: 47px;
+    font-size: 12px;
+    color: rgba(91, 91, 91, 0.34);
+    letter-spacing: 1.33px;
+    font-family: 'Colfax-Bold';
+}

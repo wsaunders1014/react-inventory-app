@@ -1,0 +1,78 @@
+
+ #email-container {
+  margin-top: 27px;
+  width: 400px;
+  float: left;
+  color: #053152;
+}
+#email-container .email-counter {
+   opacity: 0;
+   position: absolute;
+   pointer-events: none;
+   font-size: 17px;
+   letter-spacing: 0.62px;
+   padding: 0px 4px 0 2px;
+}
+#email-container .user-email {
+   border: 0;
+   padding: 0 2px;
+   background: 0;
+   letter-spacing: 0.62px;
+   margin-bottom: 10px;
+   min-width: 50px;
+   width: 135px;
+   min-width: 130px;
+   transition: width 0.1s;
+   border-bottom: 2px dashed #57BAE5;
+   font-size: 17px;
+   color: inherit;
+   text-align: center;
+}
+ #email-container .label {
+  padding-top: 4px;
+  padding-left: 35px;
+}
+ #email-container .squaredTwo {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  float: left;
+  margin-right: 5px;
+}
+ #email-container .squaredTwo label {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-shadow: inset 1px 1px 3px 0 rgba(0, 0, 0, 0.27);
+  outline: 1px solid #eee;
+}
+ #email-container .squaredTwo label.error {
+  border: 2px solid #B20707;
+  outline: none !important;
+}
+ #email-container .squaredTwo label:after {
+  content: '';
+  width: 9px;
+  height: 2.7px;
+  position: absolute;
+  top: 6px;
+  left: 4px;
+  background: transparent;
+  opacity: 0;
+  transform: rotate(-45deg);
+  border: 3px solid;
+  border-top: none;
+  border-right: none;
+}
+ #email-container .squaredTwo label:hover::after {
+  opacity: 0.3;
+}
+ #email-container .squaredTwo input[type='checkbox'] {
+  visibility: hidden;
+}
+ #email-container .squaredTwo input[type='checkbox']:checked + label:after {
+  opacity: 1;
+}
