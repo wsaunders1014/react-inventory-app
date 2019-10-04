@@ -1,11 +1,28 @@
 import React from 'react';
 import './Sidebar.css';
 import { connect } from 'react-redux';
-import {deselectCategory} from '../../redux/actions.js';
+import {deselectCategory,changeCanProgress} from '../../redux/actions.js';
 function Sidebar(props) {
   const handleDeselectCategory =(e)=>{
-    let key = e.target.getAttribute('catid');
-    props.dispatch(deselectCategory(key))
+    let target = e.target;
+    let key = target.getAttribute('catid');
+    /* Set parent class name (from: animate-in) to animate-out and then wait for animation to complete before dispatching */
+    target.parentElement.className = 'animate-out';
+    setTimeout(()=>{
+      props.dispatch(deselectCategory(key))
+      //Check if any categories are selected, if not, dispatch changeCanProgress(false)
+      let anySelected = false;
+      Object.keys(props.categories).reduce((selected=false,currVal)=>{
+        if(props.categories[currVal].isSelected===true)
+          anySelected = true;
+        return selected
+      });
+
+      if(!anySelected){
+        props.dispatch(changeCanProgress(false));
+      }
+    },500);
+
   }
   console.log('props', props)
     return(
@@ -15,6 +32,8 @@ function Sidebar(props) {
           <div className="overflow">
             <div id="ul-holder" className="holder">
               <ul>
+
+                {  /* Check category isSelected, if false, shows up in Categories instead.*/ }
                 {Object.keys(props.categories).map((currVal)=>{
                   if(props.categories[currVal].isSelected===true){
                     return (

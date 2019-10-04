@@ -1,7 +1,10 @@
+import { combineReducers } from 'redux-immer';
 import produce from "immer";
-import {SELECT_CATEGORY,DESELECT_CATEGORY} from '../actionTypes.js';
+import {SELECT_CATEGORY,DESELECT_CATEGORY,CHANGE_CANPROGRESS,GO_FORWARD} from '../actionTypes.js';
 const initialState = {
-page:'Select Categories',
+pages:['Select Categories','Large Items','Add Boxes','Review Inventory','Completed'],
+pageIndex:0,
+canProgress:false,
 categories:{
     "Sofas & Couches": {isSelected:false, "items": [false], "total": 0, "itemCount": [false], "sub_categories": [false]},
     "Dressers & Cabinets": {isSelected:false, "items": [false], "total": 0, "itemCount": [false], "sub_categories": [false, "Dining", "Office", "Bedroom", "Entertainment"]},
@@ -22,24 +25,39 @@ categories:{
     "Boxes": {isSelected:false, "items": [false], "total": 0, "itemCount": [false], "sub_categories": [false]}
   }
 }
-export default produce((draft,action) =>{
-
-  // For now, don't handle any actions
-  // and just return the state given to us.
+const categoriesReducer = (state=initialState.categories,action) =>{
 
   switch(action.type){
     case SELECT_CATEGORY:
-      draft.categories[action.key].isSelected = true;
-      return draft;
-        //Because of immutability concerns, we are not using push or shift here.
-      // draft.selectedCategories.push(action.item)
-      // draft.categories[action.item].isS
-
+      state[action.key].isSelected = true;
+      return state;
 
     case DESELECT_CATEGORY:
-      draft.categories[action.key].isSelected = false;
-      return draft;
-    // no default
+    state[action.key].isSelected = false;
+      return state;
+    default:
+      return state;
   }
 
-},initialState);
+};
+const progressReducer = (state = initialState.canProgress,action)=>{
+  switch(action.type){
+    case CHANGE_CANPROGRESS:
+      state = action.boolean
+      return state;
+    default:
+      return state;
+  }
+}
+const pageReducer = (state = {pages:initialState.pages,pageIndex:initialState.pageIndex}, action) =>{
+  switch (action.type) {
+    case GO_FORWARD:
+      state.pageIndex++;
+      return state;
+    default:
+      return state;
+  }
+}
+const combinedReducer = combineReducers(produce,{categories:categoriesReducer,canProgress:progressReducer,pageIndex:pageReducer})
+
+export default combinedReducer;

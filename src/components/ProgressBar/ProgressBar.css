@@ -15,13 +15,11 @@
   font-size: 15px;
   position: relative;
   font-size: 12px;
-}
-#progress-bar .step.two {
   border-left: 1px solid rgba(206, 206, 206, 0.31);
   border-right: 1px solid rgba(206, 206, 206, 0.31);
 }
-#progress-bar .step.three {
-  border-right: 1px solid rgba(206, 206, 206, 0.31);
+#progress-bar .step:first-child, #progress-bar .step:last-child{
+  border:0;
 }
 #progress-bar .step span {
   opacity: 0.5;
