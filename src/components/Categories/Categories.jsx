@@ -1,14 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './Categories.css';
-import {selectCategory} from '../../redux/actions.js';
+import {selectCategory,changeCanProgress} from '../../redux/actions.js';
 function Categories(props){
-
+    console.log(props);
     let keys = Object.keys(props.categories);
 
     const handleSelectCategory = (e) =>{
       let key = spaceAdder(e.target.getAttribute('id'));
-      props.dispatch(selectCategory(key))
+      e.target.className="item animate-out";
+      setTimeout(()=>{
+        props.dispatch(selectCategory(key))
+        props.dispatch(changeCanProgress(true))
+      },500)
+
     }
     return (
       <div id="categories" className="main">
@@ -21,7 +26,7 @@ function Categories(props){
 
               if(item !== 'Boxes' && props.categories[item].isSelected === false){
                 return (
-                  <div id={spaceRemove(item)} className="item"
+                  <div id={spaceRemove(item)} className="item animate-in"
                   onClick={handleSelectCategory} key={spaceRemove(item)}>
                     <div className="img" style={{backgroundPosition: x+'px '+y+'px'}}></div>
                     <div className="bottom">

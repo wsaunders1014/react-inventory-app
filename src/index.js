@@ -18,8 +18,6 @@ import store from './redux/store';
 
 
 function App(){
-
-
     return (
       <div id="wrapper">
         <ProgressBar />
@@ -33,8 +31,6 @@ function App(){
         </div>
       </div>
     )
-
-
 }
 // ========================================
 
