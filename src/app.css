@@ -5,6 +5,24 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
     font: inherit;
     vertical-align: baseline;
 }
+body {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Colfax-Regular', sans-serif;
+    overflow: hidden;
+    overflow-y: auto;
+    height: 100%;
+}
+ul{
+  list-style: none;
+}
+input {
+  color: inherit;
+  font-family: inherit;
+}
+input:focus {
+  outline: none;
+}
 #wrapper {
   width: 940px;
   margin: -1px auto 0;
@@ -45,4 +63,58 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
   font-family: 'Colfax-Light';
   src: url('./fonts/Colfax-Light.eot');
   src: url('./fonts/Colfax-Light.eot?#iefix') format('embedded-opentype'), url('./fonts/Colfax-Light.woff2') format('woff2'), url('./fonts/Colfax-Light.woff') format('woff'), url('./fonts/Colfax-Light.ttf') format('ttf'), url('./fonts/Colfax-Light.svg#Colfax-Light') format('svg');
+}
+.clearfix {
+  position: relative;
+}
+
+@keyframes popout {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0);
+    display: none;
+  }
+}
+@keyframes popin {
+  0% {
+    transform: scale(0);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes shrink {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+    display: none;
+  }
+}
+.scaleDown {
+  animation: shrink 0.5s ease-in forwards;
+}
+.animate-out {
+  animation: popout 0.4s ease-in forwards;
+}
+.animate-in {
+  display: block !important;
+  animation: popin 0.4s ease-in;
+}
+.animate-in2 {
+  display: block !important;
+  animation: popin 0.8s ease-in;
+}
+.popped {
+  display: block !important;
+  transform: scale(1);
 }
