@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './Sidebar.css';
 import { connect } from 'react-redux';
 import {deselectCategory,changeCanProgress} from '../../redux/actions.js';
 function Sidebar(props) {
+  console.log(props);
   const handleDeselectCategory =(e)=>{
     let target = e.target;
     let key = target.getAttribute('catid');
@@ -24,6 +25,13 @@ function Sidebar(props) {
     },500);
 
   }
+  //Totals up number of items in category
+  const getCatTotal = (cat) =>{
+    let total = props.categories[cat].itemCount.reduce((total,num)=>{
+      return total + num;
+    },0);
+    return total;
+  }
 
     return(
       <div id="sidebar" className="sidebar">
@@ -34,13 +42,13 @@ function Sidebar(props) {
               <ul>
 
                 {  /* Check category isSelected, if false, shows up in Categories instead.*/ }
-                {Object.keys(props.categories).map((currVal)=>{
+                {Object.keys(props.categories).map((currVal,index)=>{
                   if(props.categories[currVal].isSelected===true){
                     return (
-                      <li className="animate-in"  key={currVal}>
+                      <li className={index === 0 && props.pageIndex>0  ? " animate-in current":"animate-in"} key={currVal}>
                         <div className="cat">{currVal}</div>
                         <div className="close-btn" catid={currVal} onClick={handleDeselectCategory}>+</div>
-                        <div className="number">0</div>
+                        <div className="number">{getCatTotal(currVal)}</div>
                       </li>
                     )
                   }else{

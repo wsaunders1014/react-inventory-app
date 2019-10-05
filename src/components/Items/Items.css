@@ -1,12 +1,20 @@
 #items {
   left: 28.096217493089833%;
-;
+
 }
 #items .overflow {
   height: 361px;
 }
 #items #items-holder {
   overflow-x: hidden;
+    top: 0px;
+    padding:0;
+    height: 100%;
+}
+#items .sub-cat::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 #items .sub-cat .sub-heading {
   padding: 5px 0;
@@ -17,6 +25,10 @@
 }
 #items .item {
   background: #FFFFFF;
+}
+#items .item:hover .bottom .controls{
+  transition:top 0.5s;
+  top:0;
 }
 #items .item .img {
   pointer-events: none;
