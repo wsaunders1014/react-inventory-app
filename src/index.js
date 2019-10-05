@@ -44,7 +44,7 @@ function App(){
         <div id="content" className="clearfix">
 
           <Categories/>
-          <Sidebar />
+          <Sidebar pageIndex={nav.pageIndex}/>
           {nav.pageIndex > 0 &&
             <Items itemList={ItemList}/>
           }

@@ -1,11 +1,9 @@
 import React,{useState} from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import './Items.css';
 import SearchBar from '.././SearchBar';
 import {spaceRemove,spaceAdder} from '../../util/helpers.js';
 function Items(props){
-  console.log(props.itemList);
-
   //Grab the categories object from the store. We will be adding items to its subarray
   const categories = useSelector(state => state.categories);
   let selectedCategories = getListOfSelectedCats(categories);
@@ -23,7 +21,7 @@ function Items(props){
           {
             //console.log(props.itemList[catKey])
            Object.keys(props.itemList[catKey]).map((currVal,index)=>{
-              return <Subcategory key={currVal} subcat={currVal} items={props.itemList[catKey][currVal]}/>
+              return <Subcategory key={currVal} subcat={currVal} category={catKey} items={props.itemList[catKey][currVal]}/>
            })
           }
         </div>
@@ -67,7 +65,7 @@ function Subcategory(props){
           {
             Object.keys(props.items).map((currVal,index)=>{
               let item = props.items[currVal];
-              return <Item key={spaceRemove(currVal)} {...item} />
+              return <Item key={spaceRemove(currVal)} category={props.category} {...item} />
             })
           }
       </div>
@@ -76,9 +74,20 @@ function Subcategory(props){
 }
 
 function Item(props){
-  console.log(props);
+
   let size = (!props.size) ? "":props.size;
-  let image = (props.image) ? spaceRemove(props.name)+'.png': props.image;
+  let image;
+  if(props.image===true) {
+    image = spaceRemove(props.name)+'.png'
+  }else if(props.image===false){
+    image = 'coming-soon.png';
+  }else{
+    image = props.image;
+  }
+  const dispatch = useDispatch();
+  function handleAddItem(){
+    dispatch({type:"ADD_ITEM",payload:{item: props.name,cat:props.category}})
+  }
   return(
     <div className="item" id={props.id}>
       <div className="img" style={{background:"url(img/items/"+image.toLowerCase()+") no-repeat 50%"}} id={props.name}>
@@ -88,11 +97,11 @@ function Item(props){
         <h4 className="cancelSelect">{(props.hasChildren.length>0) ? props.name:(size+' '+props.name)}</h4>
         <div className="controls clearfix">
           <div className="minus">&ndash;</div>
-          <div className="plus">+</div>
+          <div className="plus" onClick={handleAddItem}>+</div>
         </div>
       </div>
       {
-        //(props.hasChildren.length>0) ? <div className='menu'><ul></ul></div>:false</div>
+      //  props.hasChildren.length > 0 ? <div className='menu'><ul></ul></div>:false
       }
     </div>
   )
