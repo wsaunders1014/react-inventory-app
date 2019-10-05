@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './Categories.css';
 import {selectCategory,changeCanProgress} from '../../redux/actions.js';
+import {spaceRemove,spaceAdder} from '../../util/helpers.js';
 function Categories(props){
-    console.log(props);
+
     let keys = Object.keys(props.categories);
 
     const handleSelectCategory = (e) =>{
@@ -52,11 +53,5 @@ function mapStateToProps(state){
   }
 }
 
-//Removes spaces and characters from category names
-const spaceRemove = (name) => {
-  return name.split(' ').join('_');
-}
-const spaceAdder = (name) =>{
-  return name.split('_').join(' ');
-}
+
 export default connect(mapStateToProps)(Categories);

@@ -113,9 +113,39 @@
   box-shadow: 0px 0px 0px 1px #65CAEB;
   color: #65CAEB;
 }
+.status-bar > span {
+  margin-left: 48px;
+}
+.status-bar .bolded {
+  color: #000;
+  font-family: 'Colfax-Medium';
+  font-size: 13px;
+}
+.status-bar > div {
+  float: left;
+  margin-left: 17px;
+}
+.status-bar .next {
+  float: right;
+  padding-right: 16px;
+  font-size: 15px;
+  color: #C6C6C6;
+  letter-spacing: 0.16px;
+  font-family: 'Colfax-Regular';
+}
+.status-bar #next-cat {
+  font-family: 'Colfax-Medium';
+  font-size: 15px;
+  color: #49B1D3;
+  cursor: pointer;
+  letter-spacing: 0.34px;
+}
+.status-bar #next-cat:hover {
+  color: #6edbff;
+}
 .status-bar {
     position: absolute;
-    bottom: 0;
+    bottom: -47px;
     height: 47px;
     background: #f3f3f3;
     width: 100%;
@@ -125,4 +155,18 @@
     color: rgba(91, 91, 91, 0.34);
     letter-spacing: 1.33px;
     font-family: 'Colfax-Bold';
+}
+#sidebar.animate-to-step2{
+    transition: left 0.5s;
+    left: -3.51064%;
+}
+#sidebar.animate-to-step2 .status-bar{
+  transition:bottom 0.5s;
+  bottom:0;
+}
+#sidebar.animate-to-step2 ul li .close-btn{
+  display: none;
+}
+#sidebar.animate-to-step2 ul li .number{
+  display: block;
 }
