@@ -1,0 +1,74 @@
+#search-bar {
+    width: 288px;
+    height: 37px;
+    position: absolute;
+    right: 30px;
+    top: 12px;
+}
+#search-bar input {
+    width: 251px;
+    height: 30px;
+    display: block;
+    background: #FFFFFF url(./img/search-icon.svg) 9px center no-repeat;
+    border: 1px solid #E6E6E6;
+    box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.27);
+    border-radius: 10px;
+    padding-left: 34px;
+    font-size: 15px;
+    letter-spacing: 0.04px;
+    line-height: 30px;
+    padding-top: 4px;
+    color: #5a5a5a;
+    position: relative;
+    z-index: 2;
+}
+#search-bar #search-image {
+    width: 133px;
+    height: 133px;
+    position: absolute;
+    right: 287px;
+    border: 1px solid #d2d2d2;
+    box-shadow: 0px 21px 32px -17px rgba(0, 0, 0, 0.2);
+    display: none;
+    top: 35px;
+    transform-origin: 0 0;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+#search-bar #search-results {
+  width: 286px;
+  max-height: 159px;
+  position: absolute;
+  top: 29px;
+  background: #fff;
+  border: 1px solid #d2d2d2;
+  padding: 7px 0 0;
+  font-size: 15px;
+  border-radius: 0 0 10px 10px;
+  display: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0px 21px 32px -17px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+#search-bar #search-results ul {
+  display: block;
+}
+#search-bar #search-results ul li {
+  padding: 8px 13px;
+  border-bottom: 1px solid #e6e6e6;
+}
+#search-bar #search-results ul li:hover {
+  background: #6cc0db;
+  color: #ffffff;
+  font-family: 'Colfax-Medium';
+}
+#search-bar #search-results ul li.selected {
+  background: #6cc0db;
+  color: #ffffff;
+  font-family: 'Colfax-Medium';
+}
+#search-bar #search-results ul li:last-child {
+  border: none;
+}

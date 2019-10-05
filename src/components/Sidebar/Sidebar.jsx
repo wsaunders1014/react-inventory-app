@@ -24,7 +24,7 @@ function Sidebar(props) {
     },500);
 
   }
-  console.log('props', props)
+
     return(
       <div id="sidebar" className="sidebar">
         <div className="wrapper">
@@ -50,7 +50,7 @@ function Sidebar(props) {
               </ul>
             </div>
           </div>
-          <div className="status-bar" style={{bottom: "-47px"}}>
+          <div className="status-bar">
             <span>TOTAL ITEMS:</span><span id="total-items" className="bolded">0</span>
           </div>
         </div>

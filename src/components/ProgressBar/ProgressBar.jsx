@@ -4,7 +4,6 @@ import checkmark from './img/checkmark.svg';
 import {useSelector} from 'react-redux';
 function ProgressBar(props) {
     let pages = useSelector(state=>state.pageIndex);
-    console.log(pages)
     return(
       <div id="progress-bar" className="clearfix">
         {
