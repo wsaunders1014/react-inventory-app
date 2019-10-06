@@ -1,19 +1,21 @@
-import React,{useState} from 'react';
+import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import './Items.css';
 import SearchBar from '.././SearchBar';
-import {spaceRemove,spaceAdder} from '../../util/helpers.js';
+import {spaceRemove} from '../../util/helpers.js';
 function Items(props){
+
   //Grab the categories object from the store. We will be adding items to its subarray
   const categories = useSelector(state => state.categories);
+  console.log(categories);
   let selectedCategories = getListOfSelectedCats(categories);
-  let [currentCat,setCurrentCat] = useState(0);
-  let catKey = selectedCategories[currentCat];
+  ///let [currentCat,setCurrentCat] = useState(0);
+  let catKey = selectedCategories[props.currentCat];
 //  let array = createArrayOfItemsForCategory(selectedCategories[currentCat],props.itemList);
 
   return(
     <div id="items" className="main">
-      <div className="heading cancelSelect"><span>{selectedCategories[currentCat]}</span>
+      <div className="heading cancelSelect"><span>{selectedCategories[props.currentCat]}</span>
         <SearchBar />
       </div>
       <div className="overflow">
@@ -30,8 +32,8 @@ function Items(props){
         <div id="item-weight">APPROX WEIGHT: <span className="bolded">0 lbs.</span></div>
         <div id="item-vol">APPROX VOL.: <span className="bolded">0 CF</span></div>
         {/* Hide Next button if there's only one selected category */ }
-        {selectedCategories.length >1 && currentCat < selectedCategories.length &&
-          <div className="next">Next Category: <span id="next-cat"> {selectedCategories[currentCat+1]} ></span></div>
+        {selectedCategories.length >1 && props.currentCat < selectedCategories.length-1 &&
+          <div className="next" >Next Category: <span id="next-cat" onClick={()=>{props.setCurrentCat(props.currentCat+ 1)}}> {selectedCategories[props.currentCat+1]} ></span></div>
         }
       </div>
     </div>
@@ -46,14 +48,6 @@ function getListOfSelectedCats(categories){
       array.push(key);
   }
   return array;
-}
-function createArrayOfItemsForCategory(category,items){
-  //console.log(category,items)
-  return Object.keys(items).filter((currVal,index)=>{
-    if(items[currVal].category === category)
-      return items[currVal];
-    else return null
-  })
 }
 
 

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux-immer';
 import produce from "immer";
-import {SELECT_CATEGORY,DESELECT_CATEGORY,CHANGE_CANPROGRESS,GO_FORWARD,ADD_ITEM,REMOVE_ITEM} from '../actionTypes.js';
+import {SELECT_CATEGORY,DESELECT_CATEGORY,CHANGE_CANPROGRESS,GO_FORWARD,ADD_ITEM,REMOVE_ITEM,GO_BACK} from '../actionTypes.js';
 const initialState = {
 pages:['Select Categories','Large Items','Add Boxes','Review Inventory','Completed'],
 pageIndex:0,
@@ -68,6 +68,9 @@ const pageReducer = (state = {pages:initialState.pages,pageIndex:initialState.pa
   switch (action.type) {
     case GO_FORWARD:
       state.pageIndex++;
+      return state;
+    case GO_BACK:
+      state.pageIndex--;
       return state;
     default:
       return state;

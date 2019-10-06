@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './app.css';
@@ -20,10 +21,16 @@ import store from './redux/store';
 
 function App(){
     let nav = useSelector(state=>state.pageIndex);
+    let [currentCat,setCurrentCat] = useState(0);
+    const dispatch = useDispatch();
+    //Controls transition animations
     useEffect(()=>{
+      if(nav.pageIndex === 0){
+        document.getElementById('sidebar').classList.remove('animate-to-step2');
+        document.getElementById('categories').style.display = 'block';
+        setTimeout(()=>{document.getElementById('categories').classList.remove('animate-categories-out');},500)
 
-
-      if(nav.pageIndex === 1){
+      }else if(nav.pageIndex === 1){
         //Animate Categories box out.
          document.getElementById('categories').classList.add('animate-categories-out');
          //Animates Sidebar to the left side and reveals some inner divs.
@@ -44,10 +51,18 @@ function App(){
         <div id="content" className="clearfix">
 
           <Categories/>
-          <Sidebar pageIndex={nav.pageIndex}/>
+          <Sidebar pageIndex={nav.pageIndex} currentCat={currentCat} setCurrentCat={setCurrentCat}/>
           {nav.pageIndex > 0 &&
-            <Items itemList={ItemList}/>
+            <>
+            <Items itemList={ItemList} currentCat={currentCat} setCurrentCat={setCurrentCat}/>
+            <div id="back-btn" onClick={()=>{
+                dispatch({type:"GO_BACK"})
+              }}></div>
+            </>
+
           }
+
+
         </div>
         <div className="clearfix">
           <EmailForm />
