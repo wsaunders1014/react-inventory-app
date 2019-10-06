@@ -1,4 +1,4 @@
-import {SELECT_CATEGORY,DESELECT_CATEGORY,CHANGE_CANPROGRESS,GO_FORWARD,ADD_ITEM,REMOVE_ITEM} from './actionTypes';
+import {SELECT_CATEGORY,DESELECT_CATEGORY,CHANGE_CANPROGRESS,GO_FORWARD,ADD_ITEM,REMOVE_ITEM,UPDATE_CF,UPDATE_LBS} from './actionTypes';
 
 export function selectCategory(key){
   return {
@@ -25,6 +25,7 @@ export function goForward(){
 
   }
 }
+//Pass category key and item name
 export function addItem(cat, item){
   return{
     type:ADD_ITEM,
@@ -34,6 +35,8 @@ export function addItem(cat, item){
     }
   }
 }
+
+//Pass category key and item name
 export function removeItem(cat, item){
   return{
     type:REMOVE_ITEM,
@@ -41,5 +44,19 @@ export function removeItem(cat, item){
       item:item,
       cat:cat
     }
+  }
+}
+export function updateCF(cf){
+  return{
+    type:UPDATE_CF,
+    cf:cf
+    
+  }
+}
+export function updateLBS(lbs){
+  return{
+    type:UPDATE_LBS,
+    lbs:lbs
+
   }
 }

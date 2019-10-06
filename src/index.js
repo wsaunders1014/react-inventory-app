@@ -42,7 +42,8 @@ function App(){
          },500)
 
       }else if(nav.pageIndex === 2){
-
+          //Items goes right, sidebar goes left.
+          //New sidebar pops in on right, and boxes pops in on left.
       }
     })
     return (
@@ -51,7 +52,7 @@ function App(){
         <div id="content" className="clearfix">
 
           <Categories/>
-          <Sidebar pageIndex={nav.pageIndex} currentCat={currentCat} setCurrentCat={setCurrentCat}/>
+          <Sidebar type="categories" pageIndex={nav.pageIndex} currentCat={currentCat} setCurrentCat={setCurrentCat}/>
           {nav.pageIndex > 0 &&
             <>
             <Items itemList={ItemList} currentCat={currentCat} setCurrentCat={setCurrentCat}/>
@@ -61,8 +62,10 @@ function App(){
             </>
 
           }
-
-
+          {nav.pageIndex > 1 &&
+            <Sidebar type="boxes" />
+            <Boxes />
+          }
         </div>
         <div className="clearfix">
           <EmailForm />
@@ -80,9 +83,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-
-/*
-Depending on pageIndex, animate elemnts
-
-
-*/
+// TODO: I think i'm going to need to extract side bar and main window "structure" into COMPONENTS
+// TODO: Need to set "completed status" for progress bar steps.
