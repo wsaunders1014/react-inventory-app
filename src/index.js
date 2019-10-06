@@ -14,6 +14,8 @@ import Sidebar from './components/Sidebar/Sidebar.jsx';
 import EmailForm from './components/EmailForm/EmailForm.jsx';
 import SaveButton from './components/SaveButton';
 import Items from './components/Items';
+import Boxes from './components/Boxes/Boxes.jsx';
+import BoxesSidebar from './components/BoxesSidebar/BoxesSidebar.jsx'
 /*REDUX BINDINGS */
 
 import { Provider,useSelector } from 'react-redux';
@@ -39,10 +41,17 @@ function App(){
          setTimeout(function(){
             document.getElementById('categories').style.display = 'none';
             document.getElementById('items').classList.add('animate-in');
+            setTimeout(()=>{document.getElementById('items').className="main show"},500)
          },500)
 
       }else if(nav.pageIndex === 2){
           //Items goes right, sidebar goes left.
+          document.getElementById('sidebar').classList.add('animate-sidebar-out');
+          document.getElementById('items').classList.add('animate-items-out');
+          setTimeout(()=>{
+            document.getElementById('items').style.display = 'none';
+
+          },500)
           //New sidebar pops in on right, and boxes pops in on left.
       }
     })
@@ -63,8 +72,10 @@ function App(){
 
           }
           {nav.pageIndex > 1 &&
-            <Sidebar type="boxes" />
-            <Boxes />
+            <>
+            <BoxesSidebar />
+            <Boxes itemList={ItemList}/>
+            </>
           }
         </div>
         <div className="clearfix">

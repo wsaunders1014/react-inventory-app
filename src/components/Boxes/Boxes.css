@@ -1,0 +1,11 @@
+#boxes .holder{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 4% 4% 0;
+  grid-column-gap: 20px;
+  width: 92%;
+  height: 92%;
+}
+#boxes .item{
+  background: #fff;
+}

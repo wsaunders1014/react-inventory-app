@@ -9,7 +9,7 @@ function Items(props){
   //Grab the categories object from the store. We will be adding items to its subarray
   const categories = useSelector(state => state.categories);
   const stats = useSelector(state => state.stats);
-  console.log(categories);
+
   let selectedCategories = getListOfSelectedCats(categories);
   ///let [currentCat,setCurrentCat] = useState(0);
   let catKey = selectedCategories[props.currentCat];
