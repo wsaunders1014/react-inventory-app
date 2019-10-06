@@ -139,16 +139,14 @@ input:focus {
 }
 .main .holder {
   padding: 34px 0;
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 79%;
-  top:48px;
+  top:0;
   overflow-y: scroll;
 }
 .main .item {
-  width: 133px;
-  float: left;
-  margin: 0px 0 16px 4.2%;
+  margin-bottom: 20px;
   cursor: pointer;
   box-shadow: 0px 0px 0px 1px #DCDCDC;
   border-radius: 11px;
@@ -185,7 +183,7 @@ input:focus {
 }
 .main .item:hover {
   box-shadow: 0px 0px 0px 2px rgba(73, 177, 211, 0.45);
-  width: 133px;
+
 }
 #back-btn {
     background: url(/img/back-btn.svg) no-repeat;

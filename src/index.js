@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './app.css';
 
-import ItemList from './new-item-list.json';
+import ItemList from './structuredItems.json';
 
 
 /* COMPONENTS */

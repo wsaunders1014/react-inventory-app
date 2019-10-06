@@ -21,10 +21,19 @@
   color: rgba(44, 44, 44, 0.5);
   border-bottom: 1px solid rgba(44, 44, 44, 0.2);
   width: 92%;
-  margin: 5px auto 26px;
+  margin: 0px auto 0px;
+}
+#items .sub-cat .sub-heading:first-of-type{
+    margin: 20px auto 0px;
 }
 #items .item {
   background: #FFFFFF;
+}
+#items-holder .items-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 4% 4% 0;
+  grid-column-gap: 20px;
 }
 #items .item:hover .bottom .controls{
   transition:top 0.5s;
@@ -158,7 +167,7 @@
 }
 #items .item:hover {
   box-shadow: 0px 0px 0px 2px rgba(73, 177, 211, 0.45), 0px 6px 14px -1px rgba(0, 0, 0, 0.3);
-  width: 133px;
+
 }
 #items .item:hover .menu {
   display: block;
