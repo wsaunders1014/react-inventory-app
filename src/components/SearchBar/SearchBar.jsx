@@ -14,12 +14,12 @@ class SearchBar extends React.Component{
       searchImage:"",
       showResults:false
     }
-    console.log(this.state.items);
+
 
   }
 
   searchItems = (value,items) =>{
-    console.log(value)
+
     let pattern = new RegExp(value,"gi");
 
     let returnedItems = Object.keys(items).filter((currVal)=>{
@@ -29,7 +29,7 @@ class SearchBar extends React.Component{
       }else
         return false;
     })
-    console.log(returnedItems)
+  
     this.setState({results:returnedItems});
   }
   handleChange = (e) =>{

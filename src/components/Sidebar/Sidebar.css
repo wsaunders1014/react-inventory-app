@@ -174,3 +174,6 @@
 #sidebar.animate-to-step2 ul li .number{
   display: block;
 }
+#sidebar.animate-sidebar-out{
+  left:-103%;
+}

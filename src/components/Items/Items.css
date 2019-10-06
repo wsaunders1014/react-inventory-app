@@ -1,6 +1,6 @@
 #items {
   left: 28.096217493089833%;
-
+  transition:all 0.5s;
 }
 #items .overflow {
   height: 361px;
@@ -180,4 +180,9 @@
 }
 #items .status-bar{
   bottom:0px;
+}
+
+#items.animate-items-out{
+  left:100%;
+  opacity: 0;
 }

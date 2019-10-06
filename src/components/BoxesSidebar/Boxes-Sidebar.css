@@ -1,0 +1,179 @@
+#boxes-sidebar {
+  width: 24.574468085106383%;
+  padding-left: 3.51063829787234%;
+  padding-right: 3.51063829787234%;
+  position: absolute;
+  overflow-y: hidden;
+  height: 471px;
+  left: 71.789362%;
+  top: 0;
+    transition: left 0.5s;
+}
+#boxes-sidebar .wrapper {
+  background: rgba(236, 236, 236, 0.38);
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+  height: 100%;
+}
+#boxes-sidebar .back-btn {
+  background: url(img/back-btn.svg) no-repeat;
+  width: 51px;
+  height: 47px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  display: none;
+}
+#boxes-sidebar .overflow {
+  height: 412px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+#boxes-sidebar .holder {
+  padding: 24px 0;
+  width: 100%;
+  position: absolute;
+  overflow-x: visible;
+}
+#boxes-sidebar .slide-track {
+  right: -19px;
+}
+#boxes-sidebar ul {
+  height: 100%;
+  display: block;
+  overflow-x: visible;
+}
+#boxes-sidebar ul li {
+  width: 90%;
+  margin: 0 auto 9px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 1px #CFCFCF;
+  background-color: #fff;
+  position: relative;
+  transition: all 1s;
+  font-family: 'Colfax-Medium';
+  color: #5B5B5B;
+}
+#boxes-sidebar ul li .cat {
+  font-size: 14px;
+  letter-spacing: 0.33px;
+  line-height: 41px;
+  padding-left: 15px;
+  text-transform: capitalize;
+}
+#boxes-sidebar ul li .close-btn {
+  font-size: 22px;
+  color: #cccccc;
+  letter-spacing: -0.11px;
+  transform: rotate(-315deg);
+  position: absolute;
+  right: 14px;
+  top: 0;
+  height: 100%;
+  line-height: 46px;
+  cursor: pointer;
+}
+#boxes-sidebar ul li .close-btn:hover {
+  color: #ff3b00;
+}
+#boxes-sidebar ul li .number {
+  font-size: 14px;
+  display: none;
+  font-family: 'Colfax-Medium';
+  position: absolute;
+  right: 9px;
+  width: 17px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  line-height: 46px;
+}
+#boxes-sidebar ul li:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#boxes-sidebar ul li.current {
+  box-shadow: 0px 0px 0px 1px #65CAEB;
+  color: #65CAEB;
+}
+#boxes-sidebar ul.selectable li {
+  cursor: pointer;
+  transition: all 0.4s;
+}
+#boxes-sidebar ul.selectable li .close-btn {
+  display: none;
+}
+#boxes-sidebar ul.selectable li .number {
+  display: block;
+}
+#boxes-sidebar ul.selectable li.selectable:hover {
+  box-shadow: 0px 0px 0px 1px #65CAEB;
+  color: #65CAEB;
+}
+.status-bar > span {
+  margin-left: 48px;
+}
+.status-bar .bolded {
+  color: #000;
+  font-family: 'Colfax-Medium';
+  font-size: 13px;
+}
+.status-bar > div {
+  float: left;
+  margin-left: 17px;
+}
+.status-bar .next {
+  float: right;
+  padding-right: 16px;
+  font-size: 15px;
+  color: #C6C6C6;
+  letter-spacing: 0.16px;
+  font-family: 'Colfax-Regular';
+}
+.status-bar #next-cat {
+  font-family: 'Colfax-Medium';
+  font-size: 15px;
+  color: #49B1D3;
+  cursor: pointer;
+  letter-spacing: 0.34px;
+}
+.status-bar #next-cat:hover {
+  color: #6edbff;
+}
+.status-bar {
+    position: absolute;
+    bottom: -47px;
+    height: 47px;
+    background: #f3f3f3;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    line-height: 47px;
+    font-size: 12px;
+    color: rgba(91, 91, 91, 0.34);
+    letter-spacing: 1.33px;
+    font-family: 'Colfax-Bold';
+}
+#boxes-sidebar.animate-to-step2{
+
+    left: -3.51064%;
+}
+#boxes-sidebar.animate-to-step2 .status-bar{
+  transition:bottom 0.5s;
+  bottom:0;
+}
+#boxes-sidebar.animate-to-step2 ul li {
+  cursor:pointer;
+}
+#boxes-sidebar.animate-to-step2 ul li .close-btn{
+  display: none;
+}
+#boxes-sidebar.animate-to-step2 ul li .number{
+  display: block;
+}
+#boxes-sidebar.animate-sidebar-out{
+  left:-103%;
+}
