@@ -29,7 +29,7 @@
     right: 287px;
     border: 1px solid #d2d2d2;
     box-shadow: 0px 21px 32px -17px rgba(0, 0, 0, 0.2);
-    display: none;
+    display: block;
     top: 35px;
     transform-origin: 0 0;
     background-color: #fff;
@@ -60,7 +60,7 @@
   border-bottom: 1px solid #e6e6e6;
 }
 #search-bar #search-results ul li:hover {
-  background: #6cc0db;
+  background: #9cd9ec !important;
   color: #ffffff;
   font-family: 'Colfax-Medium';
 }

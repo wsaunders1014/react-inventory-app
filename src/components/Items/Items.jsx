@@ -3,10 +3,12 @@ import {useSelector, useDispatch} from 'react-redux';
 import './Items.css';
 import SearchBar from '.././SearchBar';
 import {spaceRemove} from '../../util/helpers.js';
+import {addItem,removeItem,updateCF,updateLBS} from '../../redux/actions.js';
 function Items(props){
 
   //Grab the categories object from the store. We will be adding items to its subarray
   const categories = useSelector(state => state.categories);
+  const stats = useSelector(state => state.stats);
   console.log(categories);
   let selectedCategories = getListOfSelectedCats(categories);
   ///let [currentCat,setCurrentCat] = useState(0);
@@ -29,8 +31,8 @@ function Items(props){
         </div>
       </div>
       <div className="status-bar">
-        <div id="item-weight">APPROX WEIGHT: <span className="bolded">0 lbs.</span></div>
-        <div id="item-vol">APPROX VOL.: <span className="bolded">0 CF</span></div>
+        <div id="item-weight">APPROX WEIGHT: <span className="bolded">{stats.lbs} lbs.</span></div>
+        <div id="item-vol">APPROX VOL.: <span className="bolded">{stats.cf} CF</span></div>
         {/* Hide Next button if there's only one selected category */ }
         {selectedCategories.length >1 && props.currentCat < selectedCategories.length-1 &&
           <div className="next" >Next Category: <span id="next-cat" onClick={()=>{props.setCurrentCat(props.currentCat+ 1)}}> {selectedCategories[props.currentCat+1]} ></span></div>
@@ -78,19 +80,35 @@ function Item(props){
   }else{
     image = props.image;
   }
+
+  const categoryInfo = useSelector(state => state.categories[props.category])
+  let isOwned = categoryInfo.items.indexOf(props.name);
+  //console.log(categoryInfo)
+  let howManyOwned = 0 || categoryInfo.itemCount[isOwned];
   const dispatch = useDispatch();
-  function handleAddItem(){
-    dispatch({type:"ADD_ITEM",payload:{item: props.name,cat:props.category}})
+  function handleAddItem(e){
+    e.stopPropagation();
+    dispatch(addItem(props.category,props.name));
+    dispatch(updateCF(props.cf))
+    dispatch(updateLBS(props.lbs))
+  }
+  function handleRemoveItem(e){
+    e.stopPropagation();
+    dispatch(removeItem(props.category,props.name))
+    if(howManyOwned>0){
+      dispatch(updateCF(-props.cf))
+      dispatch(updateLBS(-props.lbs))
+    }
   }
   return(
-    <div className="item" id={props.id}>
+    <div className={(isOwned !== -1) ? "item owned":"item"} id={props.id} onClick={handleAddItem}>
       <div className="img" style={{background:"url(img/items/"+image.toLowerCase()+") no-repeat 50%"}} id={props.name}>
-        <div className="number"></div>
+        <div className="number">{(howManyOwned > 0) ? howManyOwned:''}</div>
       </div>
       <div className="bottom">
         <h4 className="cancelSelect">{(props.hasChildren.length>0) ? props.name:(size+' '+props.name)}</h4>
         <div className="controls clearfix">
-          <div className="minus">&ndash;</div>
+          <div className="minus" onClick={handleRemoveItem}>&ndash;</div>
           <div className="plus" onClick={handleAddItem}>+</div>
         </div>
       </div>
@@ -104,4 +122,4 @@ function Item(props){
 export default Items;
 
 
-/* */
+// TODO: Need to add children to menu for items.
