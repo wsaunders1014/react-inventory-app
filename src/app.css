@@ -187,3 +187,13 @@ input:focus {
   box-shadow: 0px 0px 0px 2px rgba(73, 177, 211, 0.45);
   width: 133px;
 }
+#back-btn {
+    background: url(/img/back-btn.svg) no-repeat;
+    top: -19px;
+    left: -18px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 100;
+    cursor: pointer;
+}

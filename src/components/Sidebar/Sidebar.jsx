@@ -1,9 +1,9 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import './Sidebar.css';
 import { connect } from 'react-redux';
 import {deselectCategory,changeCanProgress} from '../../redux/actions.js';
 function Sidebar(props) {
-  console.log(props);
+
   const handleDeselectCategory =(e)=>{
     let target = e.target;
     let key = target.getAttribute('catid');
@@ -26,13 +26,20 @@ function Sidebar(props) {
 
   }
   //Totals up number of items in category
-  const getCatTotal = (cat) =>{
-    let total = props.categories[cat].itemCount.reduce((total,num)=>{
+  const getCatTotal = (key, obj) =>{
+    let total = obj[key].itemCount.reduce((total,num)=>{
       return total + num;
     },0);
     return total;
   }
+  const getAllTotal = (categoriesObj) =>{
 
+    return Object.keys(categoriesObj).reduce((total,currVal)=>{
+      //Only count selected categories, otherwise if they deselect a category the total won't reflect actual number
+      return (categoriesObj[currVal].isSelected) ? total += getCatTotal(currVal,categoriesObj):total;
+    },0)
+
+  }
     return(
       <div id="sidebar" className="sidebar">
         <div className="wrapper">
@@ -45,10 +52,10 @@ function Sidebar(props) {
                 {Object.keys(props.categories).map((currVal,index)=>{
                   if(props.categories[currVal].isSelected===true){
                     return (
-                      <li className={index === 0 && props.pageIndex>0  ? " animate-in current":"animate-in"} key={currVal}>
+                      <li className={props.currentCat===index && props.pageIndex>0  ? " animate-in current":"animate-in"} key={currVal} onClick={()=>{props.setCurrentCat(index)}}>
                         <div className="cat">{currVal}</div>
                         <div className="close-btn" catid={currVal} onClick={handleDeselectCategory}>+</div>
-                        <div className="number">{getCatTotal(currVal)}</div>
+                        <div className="number">{getCatTotal(currVal,props.categories)}</div>
                       </li>
                     )
                   }else{
@@ -59,7 +66,7 @@ function Sidebar(props) {
             </div>
           </div>
           <div className="status-bar">
-            <span>TOTAL ITEMS:</span><span id="total-items" className="bolded">0</span>
+            <span>TOTAL ITEMS:</span><span id="total-items" className="bolded">{getAllTotal(props.categories)}</span>
           </div>
         </div>
         <div className="back-btn"></div>
