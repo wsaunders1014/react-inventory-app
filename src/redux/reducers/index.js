@@ -2,7 +2,6 @@ import { combineReducers } from 'redux-immer';
 import produce from "immer";
 import {SELECT_CATEGORY,DESELECT_CATEGORY,CHANGE_CANPROGRESS,GO_FORWARD,ADD_ITEM,REMOVE_ITEM,GO_BACK,UPDATE_CF,UPDATE_LBS} from '../actionTypes.js';
 const initialState = {
-pages:['Select Categories','Large Items','Add Boxes','Review Inventory','Completed'],
 pageIndex:0,
 canProgress:true,
 categories:{

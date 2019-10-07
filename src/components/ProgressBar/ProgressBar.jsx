@@ -1,14 +1,19 @@
 import React from 'react';
 import './ProgressBar.css';
 import checkmark from './img/checkmark.svg';
-import {useSelector} from 'react-redux';
+
 function ProgressBar(props) {
-    let pages = useSelector(state=>state.pageIndex);
+    const pages = ['Select Categories','Large Items','Add Boxes','Review Inventory','Completed'];
     return(
       <div id="progress-bar" className="clearfix">
         {
-           pages.pages.map((currVal,index)=>{
-             return (<div className={(index===pages.pageIndex) ? "step active":"step"} key={currVal}><div className="select-bg"></div><span>{pages.pages[index]}</span><img src={checkmark} alt=" checkmark"/></div>)
+           pages.map((currVal,index)=>{
+             let className = "step";
+             if(props.pageIndex === index)
+              className = "step active";
+             else if(props.pageIndex > index)
+              className = "step completed"
+             return (<div className={className} key={currVal}><div className="select-bg"></div><span>{pages[index]}</span><img src={checkmark} alt=" checkmark"/></div>)
            })
         }
       </div>
