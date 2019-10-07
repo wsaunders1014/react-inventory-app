@@ -25,7 +25,7 @@ export function goForward(){
 
   }
 }
-//Pass category key and item name
+//Pass category key and item obj
 export function addItem(cat, item){
   return{
     type:ADD_ITEM,
@@ -36,7 +36,7 @@ export function addItem(cat, item){
   }
 }
 
-//Pass category key and item name
+//Pass category key and item obj
 export function removeItem(cat, item){
   return{
     type:REMOVE_ITEM,
@@ -50,7 +50,7 @@ export function updateCF(cf){
   return{
     type:UPDATE_CF,
     cf:cf
-    
+
   }
 }
 export function updateLBS(lbs){

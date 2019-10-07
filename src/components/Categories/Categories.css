@@ -1,7 +1,7 @@
 #categories {
   display: block;
   transition:all 0.5s;
-  left: 0%;
+
 }
 #categories .item {
   background: #FFFFFF;
@@ -28,4 +28,23 @@
   left: -100%;
   opacity: 0;
 
+}
+.categories-appear,.categories-appear-done{
+  transition:none;
+  opacity: 1;
+  animation: popin 0.4s ease-in;
+}
+.categories-enter {
+  transition:all 0.5s;
+  opacity: 1;
+  left: -100%;
+}
+.categories-enter-done, .categories-enter-active{
+  opacity: 1;
+  left:0%;
+}
+#categories.categories-exit{
+  transition:all 0.5s;
+  opacity: 0;
+  left: -100%;
 }

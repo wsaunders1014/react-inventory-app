@@ -131,6 +131,7 @@ input:focus {
   border-radius: 10px;
   position: absolute;
   display: none;
+  opacity: 0;
 }
 .main .overflow {
   overflow-y: hidden;

@@ -75,13 +75,14 @@
   height: 100%;
   line-height: 46px;
   cursor: pointer;
+  display: none;
 }
 #boxes-sidebar ul li .close-btn:hover {
   color: #ff3b00;
 }
 #boxes-sidebar ul li .number {
   font-size: 14px;
-  display: none;
+  display: block;
   font-family: 'Colfax-Medium';
   position: absolute;
   right: 9px;

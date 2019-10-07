@@ -1,22 +1,20 @@
-#sidebar {
+.sidebar {
+  transition: all 0.5s;
   width: 24.574468085106383%;
-  padding-left: 3.51063829787234%;
-  padding-right: 3.51063829787234%;
   position: absolute;
   overflow-y: hidden;
   height: 471px;
-  left: 71.789362%;
+  left: 74.789362%;
   top: 0;
-    transition: left 0.5s;
 }
-#sidebar .wrapper {
+.sidebar .wrapper {
   background: rgba(236, 236, 236, 0.38);
   width: 100%;
   border-radius: 10px;
   position: relative;
   height: 100%;
 }
-#sidebar .back-btn {
+.sidebar .back-btn {
   background: url(img/back-btn.svg) no-repeat;
   width: 51px;
   height: 47px;
@@ -26,27 +24,27 @@
   z-index: 4;
   display: none;
 }
-#sidebar .overflow {
+.sidebar .overflow {
   height: 412px;
   position: absolute;
   width: 100%;
   left: 0;
 }
-#sidebar .holder {
+.sidebar .holder {
   padding: 24px 0;
   width: 100%;
   position: absolute;
   overflow-x: visible;
 }
-#sidebar .slide-track {
+.sidebar .slide-track {
   right: -19px;
 }
-#sidebar ul {
+.sidebar ul {
   height: 100%;
   display: block;
   overflow-x: visible;
 }
-#sidebar ul li {
+.sidebar ul li {
   width: 90%;
   margin: 0 auto 9px;
   border-radius: 10px;
@@ -57,14 +55,14 @@
   font-family: 'Colfax-Medium';
   color: #5B5B5B;
 }
-#sidebar ul li .cat {
+.sidebar ul li .cat {
   font-size: 14px;
   letter-spacing: 0.33px;
   line-height: 41px;
   padding-left: 15px;
   text-transform: capitalize;
 }
-#sidebar ul li .close-btn {
+.sidebar ul li .close-btn {
   font-size: 22px;
   color: #cccccc;
   letter-spacing: -0.11px;
@@ -76,10 +74,10 @@
   line-height: 46px;
   cursor: pointer;
 }
-#sidebar ul li .close-btn:hover {
+.sidebar ul li .close-btn:hover {
   color: #ff3b00;
 }
-#sidebar ul li .number {
+.sidebar ul li .number {
   font-size: 14px;
   display: none;
   font-family: 'Colfax-Medium';
@@ -91,26 +89,26 @@
   height: 100%;
   line-height: 46px;
 }
-#sidebar ul li:after {
+.sidebar ul li:after {
   content: "";
   display: table;
   clear: both;
 }
-#sidebar ul li.current {
+.sidebar ul li.current {
   box-shadow: 0px 0px 0px 1px #65CAEB;
   color: #65CAEB;
 }
-#sidebar ul.selectable li {
+.sidebar ul.selectable li {
   cursor: pointer;
   transition: all 0.4s;
 }
-#sidebar ul.selectable li .close-btn {
+.sidebar ul.selectable li .close-btn {
   display: none;
 }
-#sidebar ul.selectable li .number {
+.sidebar ul.selectable li .number {
   display: block;
 }
-#sidebar ul.selectable li.selectable:hover {
+.sidebar ul.selectable li.selectable:hover {
   box-shadow: 0px 0px 0px 1px #65CAEB;
   color: #65CAEB;
 }
@@ -145,6 +143,7 @@
   color: #6edbff;
 }
 .status-bar {
+    transition:bottom 0.5s;
     position: absolute;
     bottom: -47px;
     height: 47px;
@@ -157,23 +156,31 @@
     letter-spacing: 1.33px;
     font-family: 'Colfax-Bold';
 }
-#sidebar.animate-to-step2{
+.sidebar.items-sidebar{
+left: 0%;
 
-    left: -3.51064%;
 }
-#sidebar.animate-to-step2 .status-bar{
-  transition:bottom 0.5s;
+.sidebar.items-sidebar .status-bar{
+
   bottom:0;
 }
-#sidebar.animate-to-step2 ul li {
+.sidebar.items-sidebar ul li {
   cursor:pointer;
 }
-#sidebar.animate-to-step2 ul li .close-btn{
+.sidebar.items-sidebar ul li .close-btn{
   display: none;
 }
-#sidebar.animate-to-step2 ul li .number{
+.sidebar.items-sidebar ul li .number{
   display: block;
 }
-#sidebar.animate-sidebar-out{
-  left:-103%;
+
+#category-sidebar.sidebar-anim-enter{
+
+}
+#category-sidebar.sidebar-anim-exit{
+  left: -100%;
+  opacity: 0;
+}
+.sidebar-anim-appear{
+  animation: popin 0.4s ease-in;
 }

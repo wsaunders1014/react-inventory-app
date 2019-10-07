@@ -6,8 +6,7 @@ function SaveButton(props){
 
   const dispatch = useDispatch();
   let canProgress = useSelector(state => state.canProgress);
-  let pageIndex = useSelector(state=> state.pageIndex);
-
+  
   if(canProgress)
     return <div id="save-button" className="to-items cta canProgress" onClick={()=>dispatch({type:'GO_FORWARD'})}>CONTINUE<span>Your selections have been saved!</span></div>
   else {

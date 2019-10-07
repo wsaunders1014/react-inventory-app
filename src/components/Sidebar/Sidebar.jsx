@@ -41,7 +41,7 @@ function Sidebar(props) {
 
   }
     return(
-      <div id="sidebar" className="sidebar">
+      <div id={props.id} className={"sidebar "+props.classes}>
         <div className="wrapper">
           <div className="heading cancelSelect">Your Categories</div>
           <div className="overflow">
