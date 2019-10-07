@@ -55,7 +55,7 @@ function App(){
 
           <CSSTransition
             in={(nav.pageIndex ===1 ) ? true : false}
-            timeout={{enter:500,exit:5000}}
+            timeout={{enter:500,exit:500}}
             unmountOnExit
             classNames="items"
           >
@@ -78,6 +78,9 @@ function App(){
           <EmailForm />
           <SaveButton />
         </div>
+
+
+        <div id="bottom-banner"><a href="https://github.com/wsaunders1014/react-inventory-app">SEE THE SOURCE CODE ON GITHUB</a></div>
       </div>
     )
 }

@@ -199,3 +199,16 @@ input:focus {
 .show{
   display: block;
 }
+#bottom-banner{
+  position: fixed;
+  bottom:0;
+  width: 100%;
+  background:#000;
+  left: 0;
+  text-align: center;
+}
+#bottom-banner a {
+  color: #fff;
+  display: block;
+  font-family: 'Colfax-Medium';
+}
