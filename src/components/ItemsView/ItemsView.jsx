@@ -1,10 +1,11 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import './Items.css';
+import {useSelector} from 'react-redux';
+import Item from '../Item';
+import './ItemsView.css';
 import SearchBar from '.././SearchBar';
 import {spaceRemove} from '../../util/helpers.js';
-import {addItem,removeItem,updateCF,updateLBS} from '../../redux/actions.js';
-function Items(props){
+//import {addItem,removeItem,updateCF,updateLBS} from '../../redux/actions.js';
+function ItemsView(props){
 
   //Grab the categories object from the store. We will be adding items to its subarray
   const categories = useSelector(state => state.categories);
@@ -68,58 +69,8 @@ function Subcategory(props){
     </div>
   )
 }
+export default ItemsView;
 
-function Item(props){
-
-  let size = (!props.size) ? "":props.size;
-  let image;
-  if(props.image===true) {
-    image = spaceRemove(props.name)+'.png'
-  }else if(props.image===false){
-    image = 'coming-soon.png';
-  }else{
-    image = props.image;
-  }
-
-  const categoryInfo = useSelector(state => state.categories[props.category])
-  let isOwned = categoryInfo.items.indexOf(props.name);
-  //console.log(categoryInfo)
-  let howManyOwned = 0 || categoryInfo.itemCount[isOwned];
-  const dispatch = useDispatch();
-  function handleAddItem(e){
-    e.stopPropagation();
-    dispatch(addItem(props.category,props.name));
-    dispatch(updateCF(props.cf))
-    dispatch(updateLBS(props.lbs))
-  }
-  function handleRemoveItem(e){
-    e.stopPropagation();
-    dispatch(removeItem(props.category,props.name))
-    if(howManyOwned>0){
-      dispatch(updateCF(-props.cf))
-      dispatch(updateLBS(-props.lbs))
-    }
-  }
-  return(
-    <div className={(isOwned !== -1) ? "item owned":"item"} id={props.id} onClick={handleAddItem}>
-      <div className="img" style={{background:"url(img/items/"+image.toLowerCase()+") no-repeat 50%"}} id={props.name}>
-        <div className="number">{(howManyOwned > 0) ? howManyOwned:''}</div>
-      </div>
-      <div className="bottom">
-        <h4 className="cancelSelect">{(props.hasChildren.length>0) ? props.name:(size+' '+props.name)}</h4>
-        <div className="controls clearfix">
-          <div className="minus" onClick={handleRemoveItem}>&ndash;</div>
-          <div className="plus" onClick={handleAddItem}>+</div>
-        </div>
-      </div>
-      {
-      //  props.hasChildren.length > 0 ? <div className='menu'><ul></ul></div>:false
-      }
-    </div>
-  )
-}
-
-export default Items;
 
 
 // TODO: Need to add children to menu for items.
