@@ -10,8 +10,10 @@ function Categories(props){
       let keys = Object.keys(props.categories);
 
       const handleSelectCategory = (e) =>{
-        let key = spaceAdder(e.target.getAttribute('id'));
-        e.target.className="item animate-out";
+        console.log(e.currentTarget)
+        let key = spaceAdder(e.currentTarget.getAttribute('id'));
+
+        e.currentTarget.className="item animate-out";
         setTimeout(()=>{
           props.dispatch(selectCategory(key))
           props.dispatch(changeCanProgress(true))

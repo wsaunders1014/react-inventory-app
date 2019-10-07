@@ -25,10 +25,12 @@
   display: none;
 }
 .sidebar .overflow {
-  height: 412px;
+  height: 471px;
   position: absolute;
   width: 100%;
   left: 0;
+  overflow-x:visible;
+  overflow-y: auto;
 }
 .sidebar .holder {
   padding: 24px 0;
@@ -159,6 +161,9 @@
 .sidebar.items-sidebar{
 left: 0%;
 
+}
+.sidebar.items-sidebar .overflow {
+  height: 365px;
 }
 .sidebar.items-sidebar .status-bar{
 
