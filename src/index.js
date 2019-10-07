@@ -27,7 +27,7 @@ function App(){
 
     return (
       <div id="wrapper">
-        <ProgressBar />
+        <ProgressBar pageIndex={nav.pageIndex} />
 
         <div id="content" className="clearfix">
 
