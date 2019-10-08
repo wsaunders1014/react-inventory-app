@@ -3,13 +3,17 @@
   transition:all 0.5s;
 }
 #items .overflow {
-  height: 361px;
+
 }
-#items #items-holder {
+#items .holder {
+  height: 361px;
   overflow-x: hidden;
-    top: 0px;
-    padding:0;
-    height: 100%;
+  top: 0px;
+  padding:0;
+  display: block;
+  width: 100%;
+}
+.sub-cat{
 }
 #items .sub-cat::after {
   content: "";
@@ -29,7 +33,7 @@
 #items .item {
   background: #FFFFFF;
 }
-#items-holder .items-container{
+.items-container{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 4% 4% 0;

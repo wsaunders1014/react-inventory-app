@@ -793,6 +793,18 @@
             "cf": 5,
             "lbs": 35,
             "image": true
+         }
+      },
+      "TV Stands": {
+         "TV Stand": {
+            "id": 66,
+            "name": "TV Stand",
+            "size": "Up to 3' x 4'",
+            "hasChildren": false,
+            "isChild": 65,
+            "cf": 12,
+            "lbs": 84,
+            "image": false
          },
          "TV Stand": {
             "id": 67,
@@ -813,18 +825,6 @@
             "cf": 30,
             "lbs": 210,
             "image": true
-         }
-      },
-      "TV Stands": {
-         "TV Stand": {
-            "id": 66,
-            "name": "TV Stand",
-            "size": "Up to 3' x 4'",
-            "hasChildren": false,
-            "isChild": 65,
-            "cf": 12,
-            "lbs": 84,
-            "image": false
          }
       },
       "Stereos": {
@@ -935,74 +935,87 @@
       }
    },
    "Lamps & Mirrors": {
-      "Small Mirror": {
-         "id": 71,
-         "name": "Small Mirror",
-         "size": false,
-         "hasChildren": false,
-         "isChild": false,
-         "cf": 3,
-         "lbs": 21,
-         "image": true
-      },
-      "Large Mirror": {
-         "id": 72,
-         "name": "Large Mirror",
-         "size": false,
-         "hasChildren": false,
-         "isChild": false,
-         "cf": 8,
-         "lbs": 56,
-         "image": true
-      },
-      "Floor Mirror": {
-         "id": 73,
-         "name": "Floor Mirror",
-         "size": false,
-         "hasChildren": false,
-         "isChild": false,
-         "cf": 20,
-         "lbs": 140,
-         "image": true
-      },
-      "Table Lamp": {
-         "id": 76,
-         "name": "Table Lamp",
-         "size": "Large",
-         "hasChildren": false,
-         "isChild": 74,
-         "cf": 8,
-         "lbs": 56,
-         "image": false
-      },
-      "Floor Lamp": {
-         "id": 79,
-         "name": "Floor Lamp",
-         "size": "Large",
-         "hasChildren": false,
-         "isChild": 77,
-         "cf": 11,
-         "lbs": 77,
-         "image": true
-      }
-   },
-   "Lamps": {
-      "Floor Lamp": {
-         "id": 77,
-         "name": "Floor Lamp",
-         "size": "Small",
-         "hasChildren": [
-            78,
-            79
-         ],
-         "isChild": false,
-         "cf": 5,
-         "lbs": 35,
-         "image": true
-      }
+     "Lamps":{
+       "Table Lamp": {
+          "id": 76,
+          "name": "Table Lamp",
+          "size": "Large",
+          "hasChildren": false,
+          "isChild": 74,
+          "cf": 8,
+          "lbs": 56,
+          "image": false
+       },
+       "Floor Lamp": {
+          "id": 77,
+          "name": "Floor Lamp",
+          "size": "Small",
+          "hasChildren": [
+             78,
+             79
+          ],
+          "isChild": false,
+          "cf": 5,
+          "lbs": 35,
+          "image": true
+       },
+       "Floor Lamp": {
+          "id": 79,
+          "name": "Floor Lamp",
+          "size": "Large",
+          "hasChildren": false,
+          "isChild": 77,
+          "cf": 11,
+          "lbs": 77,
+          "image": true
+       }
+     },
+     "Mirrors":{
+       "Small Mirror": {
+          "id": 71,
+          "name": "Small Mirror",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 3,
+          "lbs": 21,
+          "image": true
+       },
+       "Large Mirror": {
+          "id": 72,
+          "name": "Large Mirror",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 8,
+          "lbs": 56,
+          "image": true
+       },
+       "Floor Mirror": {
+          "id": 73,
+          "name": "Floor Mirror",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 20,
+          "lbs": 140,
+          "image": true
+       }
+     }
+
    },
    "Miscellaneous": {
       "Other": {
+        "Art Easel": {
+           "id": 623,
+           "name": "Art Easel",
+           "size": false,
+           "hasChildren": false,
+           "isChild": false,
+           "cf": 8,
+           "lbs": 56,
+           "image": true
+        },
          "Clothes Steamer": {
             "id": 80,
             "name": "Clothes Steamer",
@@ -1308,6 +1321,16 @@
          }
       },
       "Nursery/Kid's Room": {
+        "Single Stroller": {
+           "id": 129,
+           "name": "Single Stroller",
+           "size": false,
+           "hasChildren": false,
+           "isChild": false,
+           "cf": 8,
+           "lbs": 56,
+           "image": true
+        },
          "Baby Swing": {
             "id": 127,
             "name": "Baby Swing",
@@ -1359,19 +1382,37 @@
             "image": true
          }
       },
-      "Nursery": {
-         "Single Stroller": {
-            "id": 129,
-            "name": "Single Stroller",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 8,
-            "lbs": 56,
-            "image": true
-         }
-      },
       "Decor": {
+        "Artificial Plant": {
+           "id": 602,
+           "name": "Artificial Plant",
+           "size": "< 8'",
+           "hasChildren": false,
+           "isChild": 600,
+           "cf": 12,
+           "lbs": 84,
+           "image": true
+        },
+        "Small Plant Stand": {
+           "id": 603,
+           "name": "Small Plant Stand",
+           "size": false,
+           "hasChildren": false,
+           "isChild": false,
+           "cf": 4,
+           "lbs": 28,
+           "image": true
+        },
+        "Large Plant Stand": {
+           "id": 604,
+           "name": "Large Plant Stand",
+           "size": false,
+           "hasChildren": false,
+           "isChild": false,
+           "cf": 8,
+           "lbs": 56,
+           "image": true
+        },
          "Chandelier": {
             "id": 197,
             "name": "Chandelier",
@@ -1669,57 +1710,47 @@
             "cf": 10,
             "lbs": 70,
             "image": true
+         },
+         "Plastic Bin": {
+            "id": 606,
+            "name": "Plastic Bin",
+            "size": false,
+            "hasChildren": false,
+            "isChild": false,
+            "cf": 8,
+            "lbs": 56,
+            "image": true
+         },
+         "Duffel Bag": {
+            "id": 608,
+            "name": "Duffel Bag",
+            "size": false,
+            "hasChildren": false,
+            "isChild": false,
+            "cf": 8,
+            "lbs": 56,
+            "image": true
+         },
+         "Small Suitcase": {
+            "id": 611,
+            "name": "Small Suitcase",
+            "size": false,
+            "hasChildren": false,
+            "isChild": false,
+            "cf": 3,
+            "lbs": 21,
+            "image": true
+         },
+         "Large Suitcase": {
+            "id": 612,
+            "name": "Large Suitcase",
+            "size": false,
+            "hasChildren": false,
+            "isChild": false,
+            "cf": 8,
+            "lbs": 56,
+            "image": true
          }
-      },
-      "Artificial Plant": {
-         "id": 602,
-         "name": "Artificial Plant",
-         "size": "< 8'",
-         "hasChildren": false,
-         "isChild": 600,
-         "cf": 12,
-         "lbs": 84,
-         "image": true
-      },
-      "Small Plant Stand": {
-         "id": 603,
-         "name": "Small Plant Stand",
-         "size": false,
-         "hasChildren": false,
-         "isChild": false,
-         "cf": 4,
-         "lbs": 28,
-         "image": true
-      },
-      "Large Plant Stand": {
-         "id": 604,
-         "name": "Large Plant Stand",
-         "size": false,
-         "hasChildren": false,
-         "isChild": false,
-         "cf": 8,
-         "lbs": 56,
-         "image": true
-      },
-      "Plastic Bin": {
-         "id": 606,
-         "name": "Plastic Bin",
-         "size": false,
-         "hasChildren": false,
-         "isChild": false,
-         "cf": 8,
-         "lbs": 56,
-         "image": true
-      },
-      "Duffel Bag": {
-         "id": 608,
-         "name": "Duffel Bag",
-         "size": false,
-         "hasChildren": false,
-         "isChild": false,
-         "cf": 8,
-         "lbs": 56,
-         "image": true
       },
       "Sporting Equipment": {
          "Tent": {
@@ -1731,49 +1762,17 @@
             "cf": 5,
             "lbs": 35,
             "image": true
-         }
-      },
-      "Sleeping Bag": {
-         "id": 610,
-         "name": "Sleeping Bag",
-         "size": false,
-         "hasChildren": false,
-         "isChild": false,
-         "cf": 3,
-         "lbs": 21,
-         "image": true
-      },
-      "Small Suitcase": {
-         "id": 611,
-         "name": "Small Suitcase",
-         "size": false,
-         "hasChildren": false,
-         "isChild": false,
-         "cf": 3,
-         "lbs": 21,
-         "image": true
-      },
-      "Large Suitcase": {
-         "id": 612,
-         "name": "Large Suitcase",
-         "size": false,
-         "hasChildren": false,
-         "isChild": false,
-         "cf": 8,
-         "lbs": 56,
-         "image": true
-      },
-      "Art": {
-         "Art Easel": {
-            "id": 623,
-            "name": "Art Easel",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 8,
-            "lbs": 56,
-            "image": true
-         }
+         },
+        "Sleeping Bag": {
+           "id": 610,
+           "name": "Sleeping Bag",
+           "size": false,
+           "hasChildren": false,
+           "isChild": false,
+           "cf": 3,
+           "lbs": 21,
+           "image": true
+        }
       },
       "Safes": {
          "Gun Cabinet": {
@@ -1819,18 +1818,18 @@
       }
    },
    "Children & Nursery": {
-      "Nursery/Kid's Room": {
-         "Child Bookcase": {
-            "id": 84,
-            "name": "Child Bookcase",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 6,
-            "lbs": 42,
-            "image": true
-         }
-      },
+
+       "Child Bookcase": {
+          "id": 84,
+          "name": "Child Bookcase",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 6,
+          "lbs": 42,
+          "image": true
+       },
+
       "Child Bed": {
          "id": 97,
          "name": "Child Bed",
@@ -1971,18 +1970,18 @@
          "lbs": 56,
          "image": true
       },
-      "Children & Nursery": {
-         "Toy Wagon": {
-            "id": 515,
-            "name": "Toy Wagon",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 12,
-            "lbs": 84,
-            "image": true
-         }
-      }
+
+       "Toy Wagon": {
+          "id": 515,
+          "name": "Toy Wagon",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 12,
+          "lbs": 84,
+          "image": true
+       }
+
    },
    "Boxes": {
       "Small Box": {
@@ -3096,7 +3095,7 @@
          "lbs": 70,
          "image": true
       },
-      "Musical Instruments & Equipment": {
+
          "Guitar": {
             "id": 593,
             "name": "Guitar",
@@ -3136,9 +3135,7 @@
             "cf": 6,
             "lbs": 42,
             "image": true
-         }
-      },
-      "Musical Instrument & Equipment": {
+         },
          "Keyboard With Stand": {
             "id": 599,
             "name": "Keyboard With Stand",
@@ -3149,101 +3146,98 @@
             "lbs": 84,
             "image": true
          }
-      }
    },
    "Desks": {
-      "Desks": {
-         "Executive Desk": {
-            "id": 384,
-            "name": "Executive Desk",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 40,
-            "lbs": 280,
-            "image": true
-         },
-         "Computer Desk": {
-            "id": 387,
-            "name": "Computer Desk",
-            "size": "Large",
-            "hasChildren": false,
-            "isChild": 385,
-            "cf": 35,
-            "lbs": 245,
-            "image": true
-         },
-         "Glass Computer Desk": {
-            "id": 390,
-            "name": "Glass Computer Desk",
-            "size": "Large",
-            "hasChildren": false,
-            "isChild": 389,
-            "cf": 35,
-            "lbs": 245,
-            "image": true
-         },
-         "Desk Return": {
-            "id": 391,
-            "name": "Desk Return",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 15,
-            "lbs": 105,
-            "image": false
-         },
-         "Roll Top Desk": {
-            "id": 392,
-            "name": "Roll Top Desk",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 20,
-            "lbs": 140,
-            "image": true
-         },
-         "Secretary Desk": {
-            "id": 393,
-            "name": "Secretary Desk",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 15,
-            "lbs": 105,
-            "image": true
-         },
-         "Desk": {
-            "id": 394,
-            "name": "Desk",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 20,
-            "lbs": 140,
-            "image": true
-         },
-         "Drafting Table": {
-            "id": 395,
-            "name": "Drafting Table",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 30,
-            "lbs": 210,
-            "image": true
-         },
-         "Work Table": {
-            "id": 398,
-            "name": "Work Table",
-            "size": "Large",
-            "hasChildren": false,
-            "isChild": 396,
-            "cf": 54,
-            "lbs": 378,
-            "image": false
-         }
-      }
+       "Executive Desk": {
+          "id": 384,
+          "name": "Executive Desk",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 40,
+          "lbs": 280,
+          "image": true
+       },
+       "Computer Desk": {
+          "id": 387,
+          "name": "Computer Desk",
+          "size": "Large",
+          "hasChildren": false,
+          "isChild": 385,
+          "cf": 35,
+          "lbs": 245,
+          "image": true
+       },
+       "Glass Computer Desk": {
+          "id": 390,
+          "name": "Glass Computer Desk",
+          "size": "Large",
+          "hasChildren": false,
+          "isChild": 389,
+          "cf": 35,
+          "lbs": 245,
+          "image": true
+       },
+       "Desk Return": {
+          "id": 391,
+          "name": "Desk Return",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 15,
+          "lbs": 105,
+          "image": false
+       },
+       "Roll Top Desk": {
+          "id": 392,
+          "name": "Roll Top Desk",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 20,
+          "lbs": 140,
+          "image": true
+       },
+       "Secretary Desk": {
+          "id": 393,
+          "name": "Secretary Desk",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 15,
+          "lbs": 105,
+          "image": true
+       },
+       "Desk": {
+          "id": 394,
+          "name": "Desk",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 20,
+          "lbs": 140,
+          "image": true
+       },
+       "Drafting Table": {
+          "id": 395,
+          "name": "Drafting Table",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 30,
+          "lbs": 210,
+          "image": true
+       },
+       "Work Table": {
+          "id": 398,
+          "name": "Work Table",
+          "size": "Large",
+          "hasChildren": false,
+          "isChild": 396,
+          "cf": 54,
+          "lbs": 378,
+          "image": false
+       }
    },
    "Tools": {
       "Edger": {
@@ -3488,178 +3482,178 @@
       }
    },
    "Sports & Hobbies": {
-      "Sporting Equipment": {
-         "Weight Machine": {
-            "id": 460,
-            "name": "Weight Machine",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 54,
-            "lbs": 378,
-            "image": true
-         },
-         "Treadmill": {
-            "id": 462,
-            "name": "Treadmill",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 20,
-            "lbs": 140,
-            "image": true
-         },
-         "Elliptical Machine": {
-            "id": 463,
-            "name": "Elliptical Machine",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 60,
-            "lbs": 420,
-            "image": true
-         },
-         "Exercise Bike": {
-            "id": 464,
-            "name": "Exercise Bike",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 25,
-            "lbs": 175,
-            "image": true
-         },
-         "Small Exercise Trampoline": {
-            "id": 465,
-            "name": "Small Exercise Trampoline",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 3,
-            "lbs": 21,
-            "image": true
-         },
-         "Weight Bench": {
-            "id": 466,
-            "name": "Weight Bench",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 10,
-            "lbs": 70,
-            "image": true
-         },
-         "Bike Rack": {
-            "id": 467,
-            "name": "Bike Rack",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 2,
-            "lbs": 14,
-            "image": true
-         },
-         "Big Wheels Toy": {
-            "id": 468,
-            "name": "Big Wheels Toy",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 3,
-            "lbs": 21,
-            "image": true
-         },
-         "Child Tricycle": {
-            "id": 469,
-            "name": "Child Tricycle",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 5,
-            "lbs": 35,
-            "image": true
-         },
-         "Adult Bike": {
-            "id": 470,
-            "name": "Adult Bike",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 8,
-            "lbs": 56,
-            "image": true
-         },
-         "Child Bike": {
-            "id": 471,
-            "name": "Child Bike",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 5,
-            "lbs": 35,
-            "image": true
-         },
-         "Golf Bag": {
-            "id": 472,
-            "name": "Golf Bag",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 5,
-            "lbs": 35,
-            "image": true
-         },
-         "Water Skis": {
-            "id": 473,
-            "name": "Water Skis",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 4,
-            "lbs": 28,
-            "image": true
-         },
-         "Surfboard": {
-            "id": 474,
-            "name": "Surfboard",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 7,
-            "lbs": 49,
-            "image": true
-         },
-         "Snow Skis": {
-            "id": 475,
-            "name": "Snow Skis",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 4,
-            "lbs": 28,
-            "image": true
-         },
-         "Snow Board": {
-            "id": 476,
-            "name": "Snow Board",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 4,
-            "lbs": 28,
-            "image": true
-         },
-         "Fishing Pole": {
-            "id": 477,
-            "name": "Fishing Pole",
-            "size": false,
-            "hasChildren": false,
-            "isChild": false,
-            "cf": 2,
-            "lbs": 14,
-            "image": true
-         }
-      },
+
+       "Weight Machine": {
+          "id": 460,
+          "name": "Weight Machine",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 54,
+          "lbs": 378,
+          "image": true
+       },
+       "Treadmill": {
+          "id": 462,
+          "name": "Treadmill",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 20,
+          "lbs": 140,
+          "image": true
+       },
+       "Elliptical Machine": {
+          "id": 463,
+          "name": "Elliptical Machine",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 60,
+          "lbs": 420,
+          "image": true
+       },
+       "Exercise Bike": {
+          "id": 464,
+          "name": "Exercise Bike",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 25,
+          "lbs": 175,
+          "image": true
+       },
+       "Small Exercise Trampoline": {
+          "id": 465,
+          "name": "Small Exercise Trampoline",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 3,
+          "lbs": 21,
+          "image": true
+       },
+       "Weight Bench": {
+          "id": 466,
+          "name": "Weight Bench",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 10,
+          "lbs": 70,
+          "image": true
+       },
+       "Bike Rack": {
+          "id": 467,
+          "name": "Bike Rack",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 2,
+          "lbs": 14,
+          "image": true
+       },
+       "Big Wheels Toy": {
+          "id": 468,
+          "name": "Big Wheels Toy",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 3,
+          "lbs": 21,
+          "image": true
+       },
+       "Child Tricycle": {
+          "id": 469,
+          "name": "Child Tricycle",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 5,
+          "lbs": 35,
+          "image": true
+       },
+       "Adult Bike": {
+          "id": 470,
+          "name": "Adult Bike",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 8,
+          "lbs": 56,
+          "image": true
+       },
+       "Child Bike": {
+          "id": 471,
+          "name": "Child Bike",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 5,
+          "lbs": 35,
+          "image": true
+       },
+       "Golf Bag": {
+          "id": 472,
+          "name": "Golf Bag",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 5,
+          "lbs": 35,
+          "image": true
+       },
+       "Water Skis": {
+          "id": 473,
+          "name": "Water Skis",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 4,
+          "lbs": 28,
+          "image": true
+       },
+       "Surfboard": {
+          "id": 474,
+          "name": "Surfboard",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 7,
+          "lbs": 49,
+          "image": true
+       },
+       "Snow Skis": {
+          "id": 475,
+          "name": "Snow Skis",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 4,
+          "lbs": 28,
+          "image": true
+       },
+       "Snow Board": {
+          "id": 476,
+          "name": "Snow Board",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 4,
+          "lbs": 28,
+          "image": true
+       },
+       "Fishing Pole": {
+          "id": 477,
+          "name": "Fishing Pole",
+          "size": false,
+          "hasChildren": false,
+          "isChild": false,
+          "cf": 2,
+          "lbs": 14,
+          "image": true
+       },
+
       "Canoe": {
          "id": 484,
          "name": "Canoe",

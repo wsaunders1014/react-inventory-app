@@ -14,12 +14,7 @@
   display: none;
 }
 #cat-holder{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 4%;
-  grid-column-gap: 20px;
-  width:92%;
-  height: 74%;
+
 }
 
 #categories.animate-categories-out{

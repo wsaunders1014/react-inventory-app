@@ -1,4 +1,4 @@
-import {SELECT_CATEGORY,DESELECT_CATEGORY,CHANGE_CANPROGRESS,GO_FORWARD,ADD_ITEM,REMOVE_ITEM,UPDATE_CF,UPDATE_LBS} from './actionTypes';
+import {SELECT_CATEGORY,DESELECT_CATEGORY,CHANGE_CANPROGRESS,GO_FORWARD,ADD_ITEM,REMOVE_ITEM,UPDATE_CF,UPDATE_LBS,CHANGE_CURRENT_CATEGORY} from './actionTypes';
 
 export function selectCategory(key){
   return {
@@ -58,5 +58,11 @@ export function updateLBS(lbs){
     type:UPDATE_LBS,
     lbs:lbs
 
+  }
+}
+export function changeCurrentCategory(index){
+  return{
+    type:CHANGE_CURRENT_CATEGORY,
+    index: index
   }
 }
