@@ -1,37 +1,51 @@
 import React from 'react';
 import './Sidebar.css';
-import { connect } from 'react-redux';
-import {deselectCategory,changeCanProgress} from '../../redux/actions.js';
+import { useSelector,useDispatch} from 'react-redux';
+import {deselectCategory,changeCanProgress,changeCurrentCategory} from '../../redux/actions.js';
 function Sidebar(props) {
+  let currentCategoryIndex = useSelector(state=>state.currentCategoryIndex);
+  const categories = useSelector(state=>state.categories);
+  const dispatch = useDispatch();
+  console.log(currentCategoryIndex)
 
   const handleDeselectCategory =(e)=>{
     let target = e.target;
     let key = target.getAttribute('catid');
+    let newArray = props.selectedCategories.slice();
+    newArray.splice(props.selectedCategories.indexOf(key),1)
+    props.setSelectedCategories(newArray)
+
+
     /* Set parent class name (from: animate-in) to animate-out and then wait for animation to complete before dispatching */
     target.parentElement.className = 'animate-out';
     setTimeout(()=>{
-      props.dispatch(deselectCategory(key))
+      dispatch(deselectCategory(key))
       //Check if any categories are selected, if not, dispatch changeCanProgress(false)
       let anySelected = false;
-      Object.keys(props.categories).reduce((selected=false,currVal)=>{
-        if(props.categories[currVal].isSelected===true)
+      Object.keys(categories).reduce((selected=false,currVal)=>{
+        if(categories[currVal].isSelected===true)
           anySelected = true;
         return selected
       });
 
       if(!anySelected){
-        props.dispatch(changeCanProgress(false));
+        dispatch(changeCanProgress(false));
       }
     },500);
 
   }
-  //Totals up number of items in category
-  const getCatTotal = (key, obj) =>{
-    let total = obj[key].itemCount.reduce((total,num)=>{
-      return total + num;
-    },0);
-    return total;
+  const handleCategoryClick = (e) => {
+    if(props.pageIndex ===1){
+      let id = e.currentTarget.getAttribute('data-id');
+      let index = props.selectedCategories.indexOf(id);
+
+      dispatch(changeCurrentCategory(index))
+    }
   }
+
+
+
+
   const getAllTotal = (categoriesObj) =>{
 
     return Object.keys(categoriesObj).reduce((total,currVal)=>{
@@ -49,13 +63,13 @@ function Sidebar(props) {
               <ul>
 
                 {  /* Check category isSelected, if false, shows up in Categories instead.*/ }
-                {Object.keys(props.categories).map((currVal,index)=>{
-                  if(props.categories[currVal].isSelected===true){
+                {Object.keys(categories).map((currVal,index)=>{
+                  if(categories[currVal].isSelected===true){
                     return (
-                      <li className={props.currentCat===index && props.pageIndex>0  ? " animate-in current":"animate-in"} key={currVal} onClick={()=>{props.setCurrentCat(index)}}>
+                      <li data-id={currVal} className={currVal===props.selectedCategories[currentCategoryIndex] && props.pageIndex>0  ? " animate-in current":"animate-in"} key={currVal} onClick={handleCategoryClick}>
                         <div className="cat">{currVal}</div>
                         <div className="close-btn" catid={currVal} onClick={handleDeselectCategory}>+</div>
-                        <div className="number">{getCatTotal(currVal,props.categories)}</div>
+                        <div className="number">{getCatTotal(currVal,categories)}</div>
                       </li>
                     )
                   }else{
@@ -66,16 +80,19 @@ function Sidebar(props) {
             </div>
           </div>
           <div className="status-bar">
-            <span>TOTAL ITEMS:</span><span id="total-items" className="bolded">{getAllTotal(props.categories)}</span>
+            <span>TOTAL ITEMS:</span><span id="total-items" className="bolded">{getAllTotal(categories)}</span>
           </div>
         </div>
         <div className="back-btn"></div>
       </div>
     )
 }
-function mapStateToProps(state){
-  return {
-    categories:state.categories,
-  }
+
+//Totals up number of items in category
+const getCatTotal = (key, obj) =>{
+  let total = obj[key].itemCount.reduce((total,num)=>{
+    return total + num;
+  },0);
+  return total;
 }
-export default connect(mapStateToProps)(Sidebar);
+export default Sidebar;

@@ -25,7 +25,7 @@ class SearchBar extends React.Component{
 
     let returnedItems = Object.keys(items).filter((currVal)=>{
       let name = items[currVal].name;
-      if(pattern.test(name)){
+      if(pattern.test(name) && items[currVal].isChild === ""){
         return items[currVal];
       }else
         return false;

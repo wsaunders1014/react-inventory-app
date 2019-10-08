@@ -4,7 +4,6 @@ import './Item.css';
 import {addItem,removeItem,updateCF,updateLBS} from '../../redux/actions.js';
 import {spaceRemove} from '../../util/helpers.js';
 function Item(props){
-
   let size = (!props.size) ? "":props.size;
   let image;
   if(props.image===true) {

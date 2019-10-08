@@ -7,3 +7,4 @@ export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const UPDATE_CF = "UPDATE_CF";
 export const UPDATE_LBS = "UPDATE_LBS";
+export const CHANGE_CURRENT_CATEGORY = "CHANGE_CURRENT_CATEGORY";

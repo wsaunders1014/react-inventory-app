@@ -1,0 +1,11 @@
+.main .holder{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 4%;
+  grid-column-gap: 20px;
+  grid-template-rows: min-content;
+  width:92%;
+  height: 74%;
+  top: 0;
+  overflow-y: auto;
+}
