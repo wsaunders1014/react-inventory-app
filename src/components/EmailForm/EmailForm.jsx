@@ -4,7 +4,7 @@ function EmailForm(props){
   let [email,setEmail] = useState({text:'',boxChecked:false})
   function handleChange(e){
 
-    setEmail({text:e.target.value, ...email})
+    setEmail({...email, text:e.target.value})
   }
   function handleCheckbox(){
     setEmail({...email,boxChecked:!email.boxChecked})

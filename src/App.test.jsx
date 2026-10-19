@@ -1,0 +1,65 @@
+import React from 'react';
+import {it,expect} from 'vitest';
+import {render,screen,fireEvent,waitFor,within,act} from '@testing-library/react';
+import {Provider} from 'react-redux';
+import App from './App.jsx';
+import {AuthProvider} from './features/auth/AuthProvider.jsx';
+import {createAppStore} from './redux/store.js';
+import {selectTotals} from './features/inventory/inventorySlice.js';
+import {moveRepository,createMove} from './services/moveRepository.js';
+const service={mode:'local',getSession:async()=>null};
+async function setup() {
+  const store=createAppStore();
+  const view=render(<Provider store={store}><AuthProvider service={service}><App/></AuthProvider></Provider>);
+  await screen.findByRole('button',{name:'Plan a move',exact:true});
+  return {...view,store};
+}
+it('completes and restores a furniture, custom item, and boxes inventory',async()=>{
+  const {store,unmount}=await setup();
+  fireEvent.click(screen.getByRole('button',{name:'Plan a move',exact:true}));
+  fireEvent.click(screen.getByRole('button',{name:/^Desks.*Your workspace/}));
+  fireEvent.click(screen.getByRole('button',{name:'Add your items',exact:true}));
+  fireEvent.click(screen.getAllByRole('button',{name:'Add item',exact:true})[0]);
+  expect(selectTotals(store.getState()).count).toBe(1);
+  fireEvent.click(screen.getByRole('button',{name:'Custom item',exact:true}));
+  fireEvent.change(screen.getByLabelText('Item name'),{target:{value:'My chair'}});
+  fireEvent.change(screen.getByLabelText('Volume (cu ft)'),{target:{value:'5'}});
+  fireEvent.click(screen.getByRole('button',{name:'Add to my inventory'}));
+  expect(selectTotals(store.getState()).count).toBe(2);
+  fireEvent.click(screen.getByRole('button',{name:'Add boxes',exact:true}));
+  const small=screen.getAllByRole('article').find(article=>within(article).queryByRole('heading',{name:'Small Box',exact:true}));
+  fireEvent.click(within(small).getByRole('button',{name:'Add box',exact:true}));
+  fireEvent.change(screen.getByLabelText('Quantity of Small Box'),{target:{value:'4'}});
+  fireEvent.click(screen.getByRole('button',{name:'Review inventory',exact:true}));
+  expect(selectTotals(store.getState()).count).toBe(6);
+  fireEvent.change(screen.getByLabelText('Give your move a name'),{target:{value:'A fresh start'}});
+  fireEvent.click(screen.getByRole('button',{name:'Complete inventory',exact:true}));
+  expect(screen.getByRole('heading',{name:/You’ve made room/})).toBeInTheDocument();
+  expect(store.getState().wizard.step).toBe('completed');
+  expect(store.getState().move.completedAt).toBeTruthy();
+  fireEvent.click(screen.getByRole('button',{name:'Back to my moves',exact:true}));
+  expect(moveRepository.list('guest')[0].move.title).toBe('A fresh start');
+  unmount();
+  await setup();
+  fireEvent.click(screen.getByRole('button',{name:'A fresh start',exact:true}));
+  expect(screen.getByRole('heading',{name:/You’ve made room/})).toBeInTheDocument();
+});
+it('does not mix inventories when switching saved moves while autosave is pending',async()=>{
+  const first=createMove('First move');first.inventory={...first.inventory,selectedCategoryIds:['desks'],activeCategoryId:'desks',quantities:{'86':1}};first.wizard={step:'review',furthestStep:3};
+  const second=createMove('Second move');second.inventory={...second.inventory,selectedCategoryIds:['boxes'],quantities:{'87':7}};second.wizard={step:'review',furthestStep:3};
+  moveRepository.save('guest',first);moveRepository.save('guest',second);
+  const {store}=await setup();
+  fireEvent.click(screen.getByRole('button',{name:'First move',exact:true}));
+  fireEvent.change(screen.getByLabelText('Quantity of Small Box'),{target:{value:'2'}});
+  fireEvent.click(screen.getAllByRole('button',{name:'My moves',exact:true})[0]);
+  fireEvent.click(screen.getByRole('button',{name:'Second move',exact:true}));
+  fireEvent.click(screen.getAllByRole('button',{name:'My moves',exact:true})[0]);
+  expect(moveRepository.list('guest').find(record=>record.move.id===first.move.id).inventory.quantities).toEqual({'86':2});
+  expect(moveRepository.list('guest').find(record=>record.move.id===second.move.id).inventory.quantities).toEqual({'87':7});
+});
+it('supports boxes-only flow and blocks completion of an empty list',async()=>{
+  await setup();fireEvent.click(screen.getByRole('button',{name:'Plan a move',exact:true}));
+  fireEvent.click(screen.getByRole('button',{name:'Go to boxes',exact:true}));
+  fireEvent.click(screen.getByRole('button',{name:'Review inventory',exact:true}));
+  expect(screen.getByRole('button',{name:'Complete inventory',exact:true})).toBeDisabled();
+});

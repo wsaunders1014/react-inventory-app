@@ -1,13 +1,13 @@
 import React from 'react';
 import './MainContainer.css';
 
-import StatusBar from '.././StatusBar';
+import StatusBar from '.././StatusBar/StatusBar.jsx';
 
 function MainContainer(props){
 
   return(
 
-    <div id={props.divID} className="main" style={props.style}>
+    <div ref={props.ref} id={props.divID} className="main" style={props.style}>
 
 
         { props.children }

@@ -1,0 +1,11 @@
+import '@testing-library/jest-dom/vitest';
+import {afterEach, beforeEach, vi} from 'vitest';
+import {cleanup} from '@testing-library/react';
+import {webcrypto} from 'node:crypto';
+Object.defineProperty(globalThis, 'crypto', {value: webcrypto, configurable:true});
+HTMLDialogElement.prototype.showModal = function () {this.setAttribute('open','');};
+HTMLDialogElement.prototype.close = function () {this.removeAttribute('open');};
+window.scrollTo = vi.fn();
+window.print = vi.fn();
+beforeEach(() => {localStorage.clear(); sessionStorage.clear(); window.history.replaceState(null, '', '/');});
+afterEach(() => {cleanup(); vi.restoreAllMocks();});
